@@ -10,7 +10,7 @@ class Solution {
                 low = mid+1;
             }
         }
-        return high+1;
+        return low;
     }
 
     static int getArraySplits(int[] nums, int sum){
