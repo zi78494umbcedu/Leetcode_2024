@@ -2,7 +2,7 @@ class Solution {
     public int minDays(int[] bloomDay, int m, int k) {
         if(bloomDay.length<(m*k))return -1;
         int high = getMax(bloomDay);
-        int low = 1;
+        int low = getMin(bloomDay);
         int ans = -1;
         while(low<=high){
             int mid = (low+high)/2;
@@ -34,6 +34,15 @@ class Solution {
         }
         return bouquets;
     }
+    static int getMin(int[] bloomDay){
+        int min = Integer.MAX_VALUE;
+        for(int i=0;i<bloomDay.length;i++){
+            min = min<bloomDay[i]?min:bloomDay[i];
+        }
+        return min;
+    }
+
+
 
     static int getMax(int[] bloomDay){
         int max = Integer.MIN_VALUE;
