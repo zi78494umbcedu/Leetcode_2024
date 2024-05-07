@@ -18,7 +18,7 @@ public class Solution {
 		}
 		int temp = s.peek();
 		s.pop();
-		insert_at_bottom(element, s);
+		insert_at_bottom(top_ref, s);
 		s.push(temp);
 	}
 
