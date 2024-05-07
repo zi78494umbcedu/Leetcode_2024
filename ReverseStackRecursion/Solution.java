@@ -18,7 +18,7 @@ public class Solution {
 		}
 		int temp = s.peek();
 		s.pop();
-		reverse(element, s);
+		insert_at_bottom(element, s);
 		s.push(temp);
 	}
 
