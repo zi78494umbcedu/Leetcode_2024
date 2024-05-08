@@ -1,0 +1,11 @@
+Problem statement
+You are given two strings 'A' and 'B' of length 'N' and 'M' respectively.
+
+Return the string that has more distinct subsequences, if both strings have the same number of distinct subsequences, then return 'A'
+
+For Example:
+'N' = 2, 'M' = 2, 'A' = "ab", 'B' = "dd".
+
+'A' has distinct subsequences = ["a", "b", "ab"].
+'B' has distinct subsequences = ["d", "dd"].
+So our answer is "ab".
