@@ -1,0 +1,10 @@
+Problem statement
+You are given an array 'A' of size 'N' and an integer'K'’. You need to generate and return all subarrays of array ‘A’ whose sum = ‘K’.
+
+Note: In the output, you will see the 2D array lexicographically sorted.
+Example:
+Input: ‘N’ = 6 ‘K’ = 3
+‘A’ = [1, 2, 3, 1, 1, 1]
+Output: 3
+Explanation: Subarrays whose sum = ‘3’ are:
+[1, 2], [3], and [1, 1, 1]
