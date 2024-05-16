@@ -1,3 +1,4 @@
+//pushing the min to the leftmost with comparing the rest array and replacing the min to the left of the array iteratively
 public class Solution {
     public static void selectionSort(int[] arr) {
         int n = arr.length;
