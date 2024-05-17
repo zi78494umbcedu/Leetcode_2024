@@ -27,6 +27,7 @@ class Solution {
         //new combinations pattern, choice to select any next index element, note: array is sorted
         for(int i=ind;i<arr.length;i++){
             //if previous element is same as current then continue
+            //i>ind for allowing once for a new element that is adjacent if same 
             if(i>ind && arr[i]==arr[i-1])continue;
             //if there is no element found further that can make target sum then skip the combination since invalid 
             if(target<arr[i])break;
