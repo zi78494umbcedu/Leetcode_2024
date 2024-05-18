@@ -18,7 +18,14 @@ class Solution {
         // return combinations;
     }
     /**
-    */
+    Reducing the time by adding conditions
+    1.looping through the array to avoid all the array elements' checking
+    2.condition for checking if same element value picked up more than atleast once
+        2.1 i>ind for allowing atleast once picking of the same value element in one iteration
+        2.2 arr[i]==arr[i-1] for checking same Value
+    3.removing further time added for checking once target is reduced such that no further element can be accommodated since the array being iterated is sorted already beforehand
+    4.no recursion call after removing statement like the pattern since looping here is the theme instead of the take/not-take
+     */
     static void callRecurCombinationsTwo(List<List<Integer>> combinations, int[] arr, int target, int ind, List<Integer> tempList){
         if(target==0){
             combinations.add(new ArrayList<>(tempList));
