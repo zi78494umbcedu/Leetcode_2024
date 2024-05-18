@@ -1,9 +1,38 @@
+
+
+import static java.util.Collections.swap;
+
 class Solution {
     public List<List<Integer>> permute(int[] nums) {
         //number of permutations is len!; || 3!=6
         List<List<Integer>> combinations = new ArrayList<>();
-        recurPermutations(0, nums, nums.length, combinations, new ArrayList<>());
+        //extra space recursion
+        //recurPermutations(0, nums, nums.length, combinations, new ArrayList<>());
+        recurSwappingPermutations(0, nums, combinations);
         return combinations;
+    }
+
+
+    static void recurSwappingPermutations(int ind, int[] nums, List<List<Integer>> combinations){
+        if(ind==nums.length){
+           List<Integer> tempList = new ArrayList<>();
+           for(int i=0;i<nums.length;i++){
+            tempList.add(nums[i]);
+           }
+           combinations.add(new ArrayList<>(tempList));
+           return;
+        }
+        for(int i=ind;i<nums.length;i++){
+            //swap with same index
+            swapLocal(i, ind, nums);
+            recurSwappingPermutations(ind+1, nums, combinations);
+            swapLocal(i, ind, nums);
+        }
+    }
+    static void swapLocal(int i, int j, int[] arr){
+        int temp  = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
     }
     
     //looping over the array, 0->n-1, no condition for combinations
