@@ -19,7 +19,8 @@ class Solution {
         else{
             //getting letters of the number at the position in the given string
             //digits.charAt(pos) => gives the character at that position in the given string
-            //char getNumericValue gives the number 
+            //char getNumericValue gives the number of that letter in our static char array 
+            //L[number] gives the array of characters for that number(character in essence)
             char[] letters = L[Character.getNumericValue(digits.charAt(pos))];
             for(int i=0;i<letters.length;i++){
                 recurCallForCombination(pos+1, len, digits, combinations, new StringBuilder(str).append(letters[i]));
