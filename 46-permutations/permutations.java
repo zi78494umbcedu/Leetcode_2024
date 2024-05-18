@@ -1,10 +1,8 @@
 class Solution {
     public List<List<Integer>> permute(int[] nums) {
-        int len =nums.length;
         //number of permutations is len!; || 3!=6
-        //if(len==1)return new ArrayList<>(nums[0]);
         List<List<Integer>> combinations = new ArrayList<>();
-        recurPermutations(0, nums, len, combinations, new ArrayList<>());
+        recurPermutations(0, nums, nums.length, combinations, new ArrayList<>());
         return combinations;
     }
     
