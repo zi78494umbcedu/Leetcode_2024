@@ -44,37 +44,59 @@ class Solution {
         //checking if DLRU possible if reached n-1*n-1
         ArrayList<String> paths = new ArrayList<>();
         boolean[][] visited = new boolean[n][n];
+        int[] di = {+1, 0, 0, -1};
+        int[] dj = {0, -1, +1, 0};
         if(m[0][0]==1){
             visited[0][0]=true;
-            recursivePathFinding(0,0, visited, paths,n, "",m);
+            recursivePathFindings(0,0, visited, paths,n, "",m, di, dj);
         }
         return paths;
     }
     
+    static void recursivePathFindings(int row, int col, boolean[][] visited, ArrayList<String> path, int n, String str, int[][] m, int[] di, int[] dj){
+        if(row==n-1 && col==n-1){
+            path.add(str);
+            return;
+        }
+        String dir = "DLRU";
+        for(int i=0;i<4;i++){
+            int nextRow = row+di[i];
+            int nextCol = col+dj[i];
+            if(nextRow>=0 && nextCol>=0 && nextRow<n && nextCol<n && !visited[nextRow][nextCol] && m[nextRow][nextCol]==1){
+                visited[nextRow][nextCol]=true;
+                recursivePathFindings(nextRow, nextCol, visited, path, n, str+dir.charAt(i), m, di, dj);
+                visited[nextRow][nextCol]=false;
+            }
+        }
+    }
+    
+    
+
     static void recursivePathFinding(int row,int col,  boolean[][] visited, ArrayList<String> paths, int n, String str, int[][] m){
         if(row==n-1 && col==n-1){
             paths.add(str);
+            return;
         }
         ////DLRU
-        //Going Down option
+        //Going Down option | +1, 0
         if(row+1<n && !visited[row+1][col] && m[row+1][col]==1){
             visited[row+1][col]=true;
             recursivePathFinding(row+1, col, visited, paths, n, str+"D", m);
             visited[row+1][col]=false;
         }
-        //Going Left option
+        //Going Left option | 0, -1
         if(col-1>=0 && !visited[row][col-1] && m[row][col-1]==1){
             visited[row][col-1]=true;
             recursivePathFinding(row, col-1, visited, paths, n, str+"L", m);
             visited[row][col-1]=false;
         }
-         //Going right option
+         //Going right option | 0, +1
         if(col+1<n && !visited[row][col+1] && m[row][col+1]==1){
             visited[row][col+1]=true;
             recursivePathFinding(row, col+1, visited, paths, n, str+"R", m);
             visited[row][col+1]=false;
         }
-         //Going up option
+         //Going up option | -1, 0
         if(row-1>=0 && !visited[row-1][col] && m[row-1][col]==1){
             visited[row-1][col]=true;
             recursivePathFinding(row-1, col, visited, paths, n, str+"U", m);
