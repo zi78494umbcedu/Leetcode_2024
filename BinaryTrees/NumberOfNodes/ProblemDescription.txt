@@ -1,0 +1,39 @@
+Problem statement
+Given an integer 'N', determine the maximum number of nodes present on 'Nth' level in a binary tree.
+
+
+
+For Example:
+
+N = 3
+For level 1, we have 1 node.
+For level 2, we have 2 nodes.
+For level 3, we have 4 nodes
+Output = 4, as level 3 has maximum 4 nodes.
+
+Detailed explanation ( Input/output format, Notes, Images )
+Sample Input 1:
+2
+Sample Output 1:
+2
+Explanation Of Sample Input 1:
+N = 2
+For level 1, we have 1 node.
+For level 2, we have 2 nodes.
+Output = 2, as level 2 has maximum 2 nodes.
+
+Sample Input 2:
+4
+Sample Output 2:
+8
+Explanation Of Sample Input 2:
+N = 4
+For level 1, we have 1 node.
+For level 2, we have 2 nodes.
+For level 3, we have 4 nodes
+For level 4, we have 8 nodes
+Output = 8, as level 4 has maximum 8 nodes.
+
+Constraints:
+1 <= N <= 20
+Time Limit: 1 sec
