@@ -1,0 +1,8 @@
+Problem statement
+Given an array 'arr' that contains 7 integers representing the values of nodes in a binary tree. This represents level order. The first element of the array represents the value of the root node.
+
+Your objective is to construct a binary tree using the remaining 6 elements of the array, creating nodes for each of these values and return root node.
+
+For example:
+arr = [11, 22, 3, 54, 15, 23, 21]
+The 7 node binary tree is represented below.
