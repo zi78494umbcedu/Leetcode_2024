@@ -3,8 +3,7 @@ class Solution {
     //optimal approach xor approach
     int xor1=nums.length;
     for(int i=0;i<nums.length;i++){
-        xor1 ^=i;
-        xor1 ^=nums[i];
+        xor1 =xor1^i^nums[i];
     }
     return xor1 ;
     //optimal approach sum approach
