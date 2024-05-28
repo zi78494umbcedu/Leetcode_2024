@@ -18,7 +18,12 @@ class Solution {
             }
             
         }
-        return element;
+        int cnt=0;
+        for(int i=0;i<n;i++){
+            if(nums[i]==element)cnt++;
+        }
+        if(cnt>(n/2))return element;
+        return -1;
         // int n = nums.length;
         // //better approach O(nlogn)
         // HashMap<Integer, Integer> map = new HashMap<>(); 
