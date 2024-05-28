@@ -37,7 +37,6 @@ public class Solution {
                 ans[2*i+1]=neg.get(i);
             }
             //add remaining negs
-            int index=2*pos.size();
             for(int i=pos.size();i<neg.size();i++){
                 ans[i]=neg.get(i);
             }
@@ -47,7 +46,6 @@ public class Solution {
                 ans[2*i+1]=neg.get(i);
             }
             //add remaining negs
-            int index=2*neg.size();
             for(int i=neg.size();i<pos.size();i++){
                 ans[i]=pos.get(i);
             }
