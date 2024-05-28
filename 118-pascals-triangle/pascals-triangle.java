@@ -2,7 +2,7 @@ class Solution {
     public List<List<Integer>> generate(int numRows) {
         //better approach
         List<List<Integer>> pascals = new ArrayList<>();
-        for(int rows = 0;rows<numRows;rows++){
+        for(int rows = 1;rows<=numRows;rows++){
             List<Integer> pascalRow=new ArrayList<>();
             pascals.add(generateRow(pascalRow, rows));
         }
@@ -22,9 +22,9 @@ class Solution {
     static List<Integer> generateRow(List<Integer> rowList, int rowNumber){
             int ans=1;
             rowList.add(1);
-            for(int col=0;col<rowNumber;col++){
+            for(int col=1;col<rowNumber;col++){
                 ans = ans * (rowNumber-col);
-                ans = ans / (col+1);
+                ans = ans / (col);
                 //System.out.println(rowNumber+":"+col+":"+ans);
                 rowList.add(ans);
             }
