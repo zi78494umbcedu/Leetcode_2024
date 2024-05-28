@@ -1,64 +1,47 @@
 Problem statement
-You are given an array 'a' of size 'n' and an integer 'k'.
+Ninja and his friend are playing a game of subarrays. They have an array ‘NUMS’ of length ‘N’. Ninja’s friend gives him an arbitrary integer ‘K’ and asks him to find the length of the longest subarray in which the sum of elements is equal to ‘K’.
 
+Ninjas asks for your help to win this game. Find the length of the longest subarray in which the sum of elements is equal to ‘K’.
 
+If there is no subarray whose sum is ‘K’ then you should return 0.
 
-Find the length of the longest subarray of 'a' whose sum is equal to 'k'.
+Example:
+Input: ‘N’ = 5,  ‘K’ = 4, ‘NUMS’ = [ 1, 2, 1, 0, 1 ]
 
+Output: 4
 
-
-Example :
-Input: ‘n’ = 7 ‘k’ = 3
-‘a’ = [1, 2, 3, 1, 1, 1, 1]
-
-Output: 3
-
-Explanation: Subarrays whose sum = ‘3’ are:
-
-[1, 2], [3], [1, 1, 1] and [1, 1, 1]
-
-Here, the length of the longest subarray is 3, which is our final answer.
+There are two subarrays with sum = 4, [1, 2, 1] and [2, 1, 0, 1]. Hence the length of the longest subarray with sum = 4 is 4.
 Detailed explanation ( Input/output format, Notes, Images )
-Sample Input 1 :
-7 3
-1 2 3 1 1 1 1
-
-
-Sample Output 1 :
-3
-
-
-Explanation Of Sample Input 1 :
-Subarrays whose sum = ‘3’ are:
-[1, 2], [3], [1, 1, 1] and [1, 1, 1]
-Here, the length of the longest subarray is 3, which is our final answer.
-
-
-Sample Input 2 :
-4 2
-1 2 1 3
-
-
-Sample Output 2 :
-1
-
-
-Sample Input 3 :
-5 2
-2 2 4 1 2 
-
-
-Sample Output 3 :
-1
-
-
-Expected time complexity :
-The expected time complexity is O(n).
-
-
 Constraints :
-1 <= 'n' <= 5 * 10 ^ 6
-1 <= 'k' <= 10^18
-0 <= 'a[i]' <= 10 ^ 9
+1 <= T <= 10
+1 <= N <= 10^5
+-10^6 <= NUMS[ i ] <= 10^6
+-10^6 <= K <= 10^6
 
-Time Limit: 1-second
+Sum of N Over all the Test cases <= 10^5
+
+Time Limit: 1 sec
+Sample Input 1 :
+2
+3 5
+2 3 5
+3 1
+-1 1 1
+Sample Output 1 :
+2
+3
+Explanation Of Sample Input 1 :
+For the first case:
+There are two subarrays with sum = 5, [2, 3] and [5]. Hence the length of the longest subarray is 2.
+
+For the second case:
+Longest subarray with sum = 1 is [1, -1, 1].
+Sample Input 2 :
+2
+3 4
+1 1 1
+3 2
+-50 0 52
+Sample Output 2 :
+0 
+3
