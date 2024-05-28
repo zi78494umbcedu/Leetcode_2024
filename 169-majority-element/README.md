@@ -1,4 +1,4 @@
-<h2><a href="https://leetcode.com/problems/majority-element">Moore's Voting Algorithm / Majority Element</a></h2> <img src='https://img.shields.io/badge/Difficulty-Easy-brightgreen' alt='Difficulty: Easy' /><hr><p>Given an array <code>nums</code> of size <code>n</code>, return <em>the majority element</em>.</p>
+<h2><a href="https://leetcode.com/problems/majority-element">Majority Element</a></h2> <img src='https://img.shields.io/badge/Difficulty-Easy-brightgreen' alt='Difficulty: Easy' /><hr><p>Given an array <code>nums</code> of size <code>n</code>, return <em>the majority element</em>.</p>
 
 <p>The majority element is the element that appears more than <code>&lfloor;n / 2&rfloor;</code> times. You may assume that the majority element always exists in the array.</p>
 
