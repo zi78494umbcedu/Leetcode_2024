@@ -29,8 +29,6 @@ class Solution {
                 high--;
             }
         }
-
-
         // //better approach O(2n)
         // int zeros=0;int ones=0;int twos=0;
         // for(int i=0;i<nums.length;i++){
