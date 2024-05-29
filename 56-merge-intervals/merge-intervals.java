@@ -10,8 +10,10 @@ class Solution {
         int n = intervals.length;
         List<int[]> response = new ArrayList<>();
         for(int i=0;i<n;i++){
+            //adding new interval 1.if nothing present or if new interval that is not overlapping
             if(response.isEmpty() || intervals[i][0]>response.get(response.size()-1)[1]){
                 response.add(intervals[i]);
+            //otherwise just update the 2nd element/end of the interval present for merging intervals
             }else{
                 response.get(response.size()-1)[1] = Math.max(response.get(response.size()-1)[1],intervals[i][1]);
             }
