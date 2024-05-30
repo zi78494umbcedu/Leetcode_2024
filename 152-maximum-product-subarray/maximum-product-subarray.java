@@ -14,9 +14,8 @@ class Solution {
             if(prefix==0)prefix=1;
             if(suffix==0)suffix=1;
             prefix*=nums[i];
-            maxProd = Math.max(prefix, maxProd);
             suffix*=nums[n-1-i];
-            maxProd = Math.max(suffix, maxProd);   
+            maxProd = Math.max(Math.max(prefix, suffix), maxProd);   
         }
         return maxProd;
         //brute force n^2
