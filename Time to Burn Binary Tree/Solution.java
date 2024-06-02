@@ -18,11 +18,13 @@ import java.util.*;
 
 public class Solution
 {
-	static void getParents(BinaryTreeNode root, Map<BinaryTreeNode, BinaryTreeNode> parentsMap){
+	static BinaryTreeNode getParents(BinaryTreeNode root, Map<BinaryTreeNode, BinaryTreeNode> parentsMap, int start){
 		Queue<BinaryTreeNode> q = new LinkedList<>();
 		q.add(root);
+		BinaryTreeNode startNode=new BinaryTreeNode<>(-1);
 		while(!q.isEmpty()){
 			BinaryTreeNode temp = q.poll();
+			if(temp.data.equals(start))startNode = temp;
 			if(temp.left!=null){
 				parentsMap.put(temp.left, temp);
 				q.add(temp.left);
@@ -32,15 +34,7 @@ public class Solution
 				q.add(temp.right);
 			}
 		}
-	}
-	static BinaryTreeNode findStart(BinaryTreeNode root, int start){
-		if(root==null)return null;
-		if(root.data.equals(start)){
-			return root;
-		}
-		BinaryTreeNode left=findStart(root.left, start);
-		if(left!=null)return left;
-		return findStart(root.right, start);
+		return startNode;
 	}
 public static int timeToBurnTree(BinaryTreeNode<Integer> root, int start)
     {
@@ -48,11 +42,10 @@ public static int timeToBurnTree(BinaryTreeNode<Integer> root, int start)
 		//change is instead of stopping at distance==k, 
 		//continue counter until the q is empty===tree is burnt completely
 		Map<BinaryTreeNode, BinaryTreeNode> parentsMap = new HashMap<>();
-		getParents(root, parentsMap);
+		BinaryTreeNode startNode = getParents(root, parentsMap, start);
 		int time=0;
 		Queue<BinaryTreeNode> q = new LinkedList<>();
 		Map<BinaryTreeNode, Boolean> visited = new HashMap<>();
-		BinaryTreeNode startNode = findStart(root, start);
 		q.add(startNode);
 		visited.put(startNode, true);
 		while(!q.isEmpty()){
