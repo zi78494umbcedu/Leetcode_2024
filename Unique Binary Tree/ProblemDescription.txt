@@ -1,0 +1,40 @@
+Problem statement
+Given a pair of tree traversal, return 'true' if a unique binary tree can be constructed otherwise 'false'.
+
+
+
+Note:
+Each traversal is represented with an integer: preorder - 1, inorder - 2, postorder - 3.   
+
+
+Example:
+For 'a' = 2, ‘b’ = 3.
+
+Answer is True.
+
+It is also possible to construct a unique binary tree. In this case, the postorder traversal provides the root of the tree, and the inorder traversal helps determine the left and right subtrees.
+Detailed explanation ( Input/output format, Notes, Images )
+Sample Input 1:
+1 2
+Sample Output 1:
+True 
+Explanation of sample output 1:
+For 'a' = 1, ‘b’ = 2.
+
+Answer is True.
+
+It is possible to construct a unique binary tree. This is because the preorder traversal provides the root of the tree, and the inorder traversal helps determine the left and right subtrees.
+Sample Input 2:
+2 2
+Sample Output 2:
+False
+Constraints:
+1 <= ‘a’, ‘b’ <= 3
+Time Limit: 1 sec
+Java (SE 1.8)
+12345
+public class Solution {
+    public static boolean uniqueBinaryTree(int a, int b){
+        // Write your code here.
+    }
+}
