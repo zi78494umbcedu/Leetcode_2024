@@ -15,7 +15,38 @@
  */
 class Solution {
     public int countNodes(TreeNode root) {
-        return size(root);
+        //using property of a complete tree - using height of every subtree
+        //iterating, if left-height <> right-height then cannot apply 2^n-1 
+        //instead 1 + left + right
+        return heightDependentSize(root);
+        //brute force method O(n) -> return size(root);
+    }
+    static int heightDependentSize(TreeNode root){
+        if(root==null){
+            return 0;
+        }
+        int lh = getLeftHeight(root);
+        int rh = getRightHeight(root);
+        if(lh==rh){
+            return (1<<lh)-1;
+        }
+        return 1+heightDependentSize(root.left)+heightDependentSize(root.right);
+    } 
+    static int getLeftHeight(TreeNode root){
+        int h=0;
+        while(root!=null){
+            h++;
+            root= root.left;
+        }
+        return h;
+    }
+    static int getRightHeight(TreeNode root){
+        int h=0;
+        while(root!=null){
+            h++;
+            root= root.right;
+        }
+        return h;
     }
     static int size(TreeNode root){
         if(root==null){
