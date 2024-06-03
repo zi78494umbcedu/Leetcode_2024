@@ -15,22 +15,48 @@
  */
 class Solution {
     public List<Integer> preorderTraversal(TreeNode root) {
-        //iterative method
-        List<Integer> preOrderResult = new ArrayList<>();
-        if(root==null)return preOrderResult;
-        Stack<TreeNode> stack = new Stack<TreeNode>();
-        stack.add(root);
-        while(!stack.isEmpty()) {
-            TreeNode temp = stack.pop();
-            preOrderResult.add(temp.val);
-            if(temp.right!=null){
-                stack.add(temp.right);
+
+        //Morris's Threading traversal without extra space
+        List<Integer> preOrder = new ArrayList<>();
+        if(root==null)return preOrder;
+        TreeNode curr = root;
+        while(curr!=null){
+            if(curr.left==null){
+                preOrder.add(curr.val);
+                curr = curr.right;
             }
-            if(temp.left!=null){
-                stack.add(temp.left);
+            else{
+                TreeNode currLeft = curr.left;
+                while(currLeft.right!=null && currLeft.right!=curr){
+                    currLeft=currLeft.right;
+                }
+                if(currLeft.right==null){
+                    currLeft.right = curr;
+                    preOrder.add(curr.val);
+                    curr=curr.left;
+                }else{
+                    currLeft.right=null;
+                    curr=curr.right;
+                }
             }
         }
-        return preOrderResult;
+        return preOrder;
+        //iterative method
+        // List<Integer> preOrderResult = new ArrayList<>();
+        // if(root==null)return preOrderResult;
+        // Stack<TreeNode> stack = new Stack<TreeNode>();
+        // stack.add(root);
+        // while(!stack.isEmpty()) {
+        //     TreeNode temp = stack.pop();
+        //     preOrderResult.add(temp.val);
+        //     if(temp.right!=null){
+        //         stack.add(temp.right);
+        //     }
+        //     if(temp.left!=null){
+        //         stack.add(temp.left);
+        //     }
+        // }
+        // return preOrderResult;
         //return preOrder(root, new ArrayList<>());
     }
     static List<Integer> preOrder(TreeNode root, List<Integer> traversal){
