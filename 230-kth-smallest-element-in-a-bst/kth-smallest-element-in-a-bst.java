@@ -15,11 +15,10 @@
  */
 class Solution {
     public int kthSmallest(TreeNode root, int k) {
-        //morris inorder traversal since it gives the sorted array and stopping when found the kth elemenmt inline
-        TreeNode curr =root;
+        //morris' inorder traversal, find left, visit root if found then check count and return
         int cnt=0;
+        TreeNode curr = root;
         while(curr!=null){
-            
             if(curr.left==null){
                 cnt++;
                 if(cnt==k){
@@ -27,21 +26,21 @@ class Solution {
                 }
                 curr=curr.right;
             }else{
-                TreeNode currLeft =curr.left;
+                TreeNode currLeft = curr.left;
+                //tetherting/anti-tethering
                 while(currLeft.right!=null && currLeft.right!=curr){
-                    currLeft =currLeft.right;
+                    currLeft= currLeft.right;
                 }
-                if(currLeft.right==null){
-                    currLeft.right =curr;
-                    curr=curr.left;
-                }else{
+                if(currLeft.right!=null){
                     cnt++;
                     if(cnt==k){
                         return curr.val;
                     }
-                    
+                    curr = curr.right;
                     currLeft.right=null;
-                    curr= curr.right;
+                }else{
+                    currLeft.right=curr;
+                    curr = curr.left;
                 }
             }
         }
