@@ -39,15 +39,26 @@ class Solution {
         }
         return inorder;
     }
-    public boolean isValidBST(TreeNode root) {
-        //morris inorder traversal and then check if sorted 
-        List<Integer> morrisInorder = morrisInorder(root, new ArrayList<>());
-        int n=morrisInorder.size();
-        for(int i=0;i<n-1;i++){
-            if(morrisInorder.get(i)>=morrisInorder.get(i+1)){
-                return false;
-            }
+    static Boolean isValidBSTRange(TreeNode root, long min, long max){
+        if(root==null){
+            return true;
         }
-        return true;
+        if(root.val>=max ||  root.val<=min){
+            return false;
+        }
+        return isValidBSTRange(root.left, min, root.val) &&  isValidBSTRange(root.right, root.val, max);
+    }
+    public boolean isValidBST(TreeNode root) {
+        //Range approach - recursive
+        return isValidBSTRange(root, Long.MIN_VALUE, Long.MAX_VALUE);
+        // //morris inorder traversal and then check if sorted 
+        // List<Integer> morrisInorder = morrisInorder(root, new ArrayList<>());
+        // int n=morrisInorder.size();
+        // for(int i=0;i<n-1;i++){
+        //     if(morrisInorder.get(i)>=morrisInorder.get(i+1)){
+        //         return false;
+        //     }
+        // }
+        // return true;
     }
 }
