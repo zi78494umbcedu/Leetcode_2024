@@ -10,10 +10,12 @@
 
 class Solution {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        if(root==null)return null;
+        int curr = root.val;
         //O(H) - using height factor of binary search tree until a diversion found that p on one side and q on other
-        if(root.val>p.val && root.val>q.val){
+        if(curr>p.val && curr>q.val){
             return lowestCommonAncestor(root.left, p, q);
-        }else if(root.val<p.val && root.val<q.val){
+        }else if(curr<p.val && curr<q.val){
             return lowestCommonAncestor(root.right, p, q);
         }else{
             return root;
