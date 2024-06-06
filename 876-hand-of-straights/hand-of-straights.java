@@ -21,25 +21,38 @@ class Solution {
     }
 
     public boolean isNStraightHand(int[] hand, int groupSize) {
-        //return false if the array is not divisible by groupSize
-        int len = hand.length;
-        Arrays.sort(hand);
-        if(len%groupSize!=0)return false;
-        //checking consecutives marking -1
-        if(groupSize>1){
-            for(int i=0;i<len;i++){
-                //card cannot be -1
-                if(hand[i]!=-1){
-                    int curr= hand[i];
-                    hand[i]=-1;
-                    if(!findConsecutives(hand, curr, groupSize, i)){
-                        return false;
-                    }
-                }
+        //using priority queue
+        if(hand.length%groupSize!=0)return false;
+        //minHeap will sort and store
+        PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+        for(int elem: hand)minHeap.add(elem);
+
+        while(!minHeap.isEmpty()){
+            int head = minHeap.poll();
+            for(int i=1;i<groupSize;i++){
+                if(!minHeap.remove(head+i))return false;
             }
         }
-        
         return true;
+        // //return false if the array is not divisible by groupSize
+        // int len = hand.length;
+        // Arrays.sort(hand);
+        // if(len%groupSize!=0)return false;
+        // //checking consecutives marking -1
+        // if(groupSize>1){
+        //     for(int i=0;i<len;i++){
+        //         //card cannot be -1
+        //         if(hand[i]!=-1){
+        //             int curr= hand[i];
+        //             hand[i]=-1;
+        //             if(!findConsecutives(hand, curr, groupSize, i)){
+        //                 return false;
+        //             }
+        //         }
+        //     }
+        // }
+        
+        // return true;
     }
 }
 /** 
