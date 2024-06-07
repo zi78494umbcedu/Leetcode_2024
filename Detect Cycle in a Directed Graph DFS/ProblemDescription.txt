@@ -1,0 +1,53 @@
+Problem statement
+Given a directed graph, check whether the graph contains a cycle or not. Your function should return true if the given graph contains at least one cycle, else return false.
+
+Detailed explanation ( Input/output format, Notes, Images )
+Constraints:
+1 <= T <= 10
+1 <= V <= 10^3
+0 <= E <= 10^3
+0 <= A, B < V
+
+Time Limit: 1 sec
+Sample Input 1:.
+2
+4 4
+0 1
+1 2
+2 3
+3 0
+3 3
+1 0
+1 2
+0 2
+Sample Output 1:
+true
+false
+Explanation for Sample Input 1:
+In the first case,
+From node 0 we can reach 0 again by following this sequence of nodes in the path: 0,1,2,3,0. As we can see in the image below.
+
+In the second case,
+There is no cycle in the given graph. As we can see in the image below.
+
+Sample Input 2:
+2
+3 2
+0 1
+0 2
+3 3
+1 1
+0 2
+1 2
+Sample Output 2:
+false
+true
+Java (SE 1.8)
+1234567
+public class Solution 
+{
+    public static Boolean isCyclic(int[][] edges, int v, int e)
+    {
+        // Write your code here.
+	}
+}
