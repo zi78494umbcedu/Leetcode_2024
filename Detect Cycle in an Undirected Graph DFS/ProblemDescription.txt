@@ -1,0 +1,31 @@
+Problem statement
+Given an undirected graph of 'V' vertices and 'E' edges. Return true if the graph contains a cycle or not, else return false.
+
+
+
+Note:
+
+There are no self-loops(an edge connecting the vertex to itself) in the given graph.
+Example:
+Given N=3, M =2, and edges are (1, 2) and (2, 3), with nodes 1, 2, and 3.
+
+We return false because the given graph does not have any cycle.
+
+Detailed explanation ( Input/output format, Notes, Images )
+Constraints:
+1 <= V <= 10^5
+0 <= E <= 2 * 10^5
+0 <= u,v < V
+
+Time Limit: 1sec
+Java (SE 1.8)
+123456789
+import java.util.List;
+public class Solution {
+    static class Graph {
+        boolean detectCycle(int V, List<List<Integer>> adj) {
+            // Write your code here.
+        }
+    };
+}
+
