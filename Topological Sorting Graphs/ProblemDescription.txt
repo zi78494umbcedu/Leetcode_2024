@@ -1,0 +1,33 @@
+Problem statement
+Given a DAG(direct acyclic graph), return the Topological Sorting of a given graph.
+
+Detailed explanation ( Input/output format, Notes, Images )
+Constraints:
+1 <= T <= 10
+1 <= V <= 1000
+0 <= E <= 3000
+0 <= U, V <= V-1
+
+Time Limit: 1sec
+Sample Input 1:
+1
+5 4
+0 2
+1 2
+3 1
+0 4
+Sample Output 1:
+Correct
+Sample Output 1 Explanation:
+One correct sort order is : 3 1 0 4 2.
+Java (SE 1.8)
+123456789
+
+public class Solution {
+
+    public static List<Integer> topologicalSort(int[][] edges, int e, int v) {
+        // Write your code here!
+
+    }
+
+}
