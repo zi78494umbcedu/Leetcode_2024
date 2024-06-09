@@ -1,31 +1,40 @@
+import java.util.*;
+
 public class Solution 
 {
-    static boolean dfs(int node, int[][] edges, int[] visited, int[] pathVisited){
-        visited[node]=1;
-        pathVisited[node]=1;
-        for(int adj:edges[node]){
-            if(visited[adj]==0){
-                if(dfs(adj, edges, visited, pathVisited)==true){
-                    return true;
-                }
-            }else if(pathVisited[adj]==1){
-                return true;
-            }
-        }
-        pathVisited[node]=0;
-        return false;
-    }
     public static Boolean isCyclic(int[][] edges, int v, int e)
     {
+        //create adjacency matrix
+        List<List<Integer>> adj = new ArrayList<>();
+        for(int i=0;i<v;i++){
+            adj.add(new ArrayList<>());
+        }
+        for(int i=0;i<e;i++){
+            adj.get(edges[i][0]).add(edges[i][1]);
+        }
         int[] visited = new int[v];
-        int[] pathVisited = new int[v];
         for(int i=0;i<v;i++){
             if(visited[i]==0){
-                if(dfs(i, edges, visited, pathVisited)==true){
+                if(dfs(adj, visited, i)){
                     return true;
                 }
             }
         }
         return false;
 	}
+
+    static boolean dfs(List<List<Integer>> adj, int[] visited, int node){
+        visited[node]=2;
+        for(int neighbour:adj.get(node)){
+            if(visited[neighbour]==0){
+                if(dfs(adj, visited,neighbour)){
+                    return true;
+                }
+            }else if(visited[neighbour]==2){
+                return true;
+            }
+        }
+        visited[node]=1;
+        return false;
+    }
 }
