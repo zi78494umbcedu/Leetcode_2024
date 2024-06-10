@@ -1,8 +1,9 @@
 class Solution {
+    Map<String, Integer> map = new HashMap<>();
+    List<List<String>> ans = new ArrayList<>();
     String b;
-    HashMap<String,Integer> map=new HashMap<>();
-    List<List<String>> ans=new ArrayList<>();
-    public void dfs(String end,List<String> seq){
+
+public void dfs(String end,List<String> seq){
         if(end.equals(b)){
           List<String> list=new ArrayList<>(seq);
           Collections.reverse(list);
@@ -27,10 +28,7 @@ class Solution {
 
     }
 
-
-
-
-    public List<List<String>> findLadders(String beginWord, String endWord, List<String> wordList) {
+        public List<List<String>> findLadders(String beginWord, String endWord, List<String> wordList) {
         b=beginWord;
         HashSet<String> set=new HashSet<>(wordList);
         Queue<String> q=new LinkedList<>();
@@ -66,8 +64,7 @@ class Solution {
         return ans;
     }
 }
-
-        // Set<String> set = new HashSet<>();
+      // Set<String> set = new HashSet<>();
         // for(String word:wordList){
         //     set.add(word);
         // }
@@ -87,6 +84,7 @@ class Solution {
         //         for(String word:usedOnLevel){
         //             set.remove(word);
         //         }
+        //         usedOnLevel=new ArrayList<>();
         //     }
         //     String lastWord = temp.get(temp.size()-1);
         //     if(lastWord.equals(endWord)){
@@ -97,8 +95,9 @@ class Solution {
         //         }
         //     }
         //     for(int i=0;i<lastWord.length();i++){
+        //         char[] charArray = lastWord.toCharArray();
+        //         char original =charArray[i];
         //         for(char c='a';c<='z';c++){
-        //             char[] charArray = lastWord.toCharArray();
         //             charArray[i]=c;
         //             String newWord = new String(charArray);
         //             if(set.contains(newWord)){
@@ -109,7 +108,8 @@ class Solution {
         //                 temp.remove(temp.size()-1);
         //             }
         //         }
+        //         charArray[i]=original;
         //     }
         // }
         // return result;
-    
+ 
