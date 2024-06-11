@@ -32,7 +32,7 @@ class Solution {
         for(int i=0;i<flights.length;i++){
             adj.get(flights[i][0]).add(new Pair(flights[i][1], flights[i][2]));
         }
-        Queue<Tuple> q = new LinkedList<>();
+        PriorityQueue<Tuple> q = new PriorityQueue<>(Comparator.comparingInt(t->t.first));
         int[] distances = new int[n+1];
         Arrays.fill(distances, (int)(1e9));
         //stops, node, distance
