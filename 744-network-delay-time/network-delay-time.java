@@ -31,8 +31,8 @@ class Solution {
         }
         int[] distances = new int[n+1];
         Arrays.fill(distances, (int)(1e9));
-        PriorityQueue<Pair> q = new PriorityQueue<>(Comparator.comparingInt(t->t.first));
-        //Queue<Tuple> q = new LinkedList<>();
+        //PriorityQueue<Pair> q = new PriorityQueue<>(Comparator.comparingInt(t->t.first));
+        Queue<Pair> q = new LinkedList<>();
         //steps, node, distance
         q.add(new Pair(k, 0));
         distances[k]=0;
