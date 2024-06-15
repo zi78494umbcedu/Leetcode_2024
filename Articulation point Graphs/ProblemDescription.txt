@@ -1,30 +1,33 @@
-Problem statement
-You are given an undirected unweighted graph and you are supposed to find all articulation in the graph.
+Given an undirected connected graph with V vertices and adjacency list adj. You are required to find all the vertices removing which (and edges through it) disconnects the graph into 2 or more components and return it in sorted manner.
+Note: Indexing is zero-based i.e nodes numbering from (0 to V-1). There might be loops present in the graph.
 
-Detailed explanation ( Input/output format, Notes, Images )
+Example 1:
+
+Input:
+
+Output:{1,4}
+Explanation: Removing the vertex 1 will
+discconect the graph as-
+
+Removing the vertex 4 will disconnect the
+graph as-
+
+ 
+
+Your Task:
+You don't need to read or print anything. Your task is to complete the function articulationPoints() which takes V and adj as input parameters and returns a list containing all the vertices removing which turn the graph into two or more disconnected components in sorted order. If there are no such vertices then returns a list containing -1.
+ 
+
+Expected Time Complexity: O(V + E)
+Expected Auxiliary Space: O(V)
+ 
+
 Constraints:
-1 <= T <= 100
-1 <= N, M <= 10^4
-1 <= u, v <= N
-Sample Input:
-1
-4 4
-1 2
-1 3
-2 3
-3 4
-Sample Output:
-3
-Java (SE 1.8)
-1234567891011
-import java.io.*;
-import java.util.*;
-public class Solution{
+1 ≤ V ≤ 105
 
-    public static void main(String[] args) throws NumberFormatException, IOException {
-
-        // Your class should be named Solution
-        // Write your code here
-
-	}
-
+Seen this question in a real interview before ?
+1/4
+Yes
+No
+Topic Tags
+Related Courses
