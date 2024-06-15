@@ -54,7 +54,7 @@ class Solution
                 }
                 child++;
             }else{
-                low[node]=Math.min(tin[node], low[neighbour]);
+                low[node]=Math.min(low[node], tin[neighbour]);
             }
         }
         if(child>1 && parent==-1){
