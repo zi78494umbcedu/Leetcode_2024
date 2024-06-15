@@ -1,0 +1,30 @@
+Problem statement
+You are given an undirected unweighted graph and you are supposed to find all articulation in the graph.
+
+Detailed explanation ( Input/output format, Notes, Images )
+Constraints:
+1 <= T <= 100
+1 <= N, M <= 10^4
+1 <= u, v <= N
+Sample Input:
+1
+4 4
+1 2
+1 3
+2 3
+3 4
+Sample Output:
+3
+Java (SE 1.8)
+1234567891011
+import java.io.*;
+import java.util.*;
+public class Solution{
+
+    public static void main(String[] args) throws NumberFormatException, IOException {
+
+        // Your class should be named Solution
+        // Write your code here
+
+	}
+
