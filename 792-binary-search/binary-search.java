@@ -5,7 +5,7 @@ class Solution {
         
     }
     static int searchRecur(int[] nums, int start, int end, int target){
-        int mid = start+((end-start)/2);
+        int mid = (start+end)/2;
         if(start>end)return -1;
         if(nums[mid]==target) return mid;
         else if(target<nums[mid]){
