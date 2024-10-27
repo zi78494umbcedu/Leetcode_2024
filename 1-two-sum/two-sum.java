@@ -1,25 +1,31 @@
 class Solution {
     public int[] twoSum(int[] nums, int target) {
-        //optimal approach
-        //using 2 pointer after sorting, add to left and subtract from right if sum is less and more respectively
-        //better approach hashing O(nLogn)
-        HashMap<Integer, Integer> map = new HashMap<>();
-        int n = nums.length;
-        for(int i=0;i<n;i++){
-            if(map.containsKey(target-nums[i])){
-                return new int[]{i, map.get(target-nums[i])};
-            }
-            map.put(nums[i], i);
-        }
-        return new int[]{};
-        //brute force O(n^2)
-        // for(int i=0;i<nums.length;i++){
-        //      for(int j=i+1;j<nums.length;j++){
-        //         if(nums[j]+nums[i]==target){
+        //brute force by traversing through the array - O(n^2)
+        // int n=nums.length;
+        // for(int i=0;i<n-1;i++){
+        //     for(int j=1;j<n;j++){
+        //         if(nums[i]+nums[j]==target){
         //             return new int[]{i, j};
         //         }
-        //      }
+        //     }
         // }
-        // return new int[]{};
+        // return new int[]{0,0};
+
+        // using a Hashmap to add all of the array and then traversing through once 
+        // for each number with target - the number match
+        // check for same index
+        HashMap<Integer, Integer> map = new HashMap<Integer,Integer>();
+        int n=nums.length;
+        for(int i=0;i<n;i++){
+            map.put( nums[i], i);
+        }
+        for(int i=0;i<n;i++){
+            if(map.get(target - nums[i])!=null && map.get(target-nums[i])!=i){
+                return new int[]{i, map.get(target - nums[i])};
+            }else{
+                continue;
+            }
+        }
+        return new int[]{};
     }
 }
